@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Рулетка</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <style>
+        body.loading::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Затемняем экран половину */
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="loading">
+<header>
+    <a class="main_menu" href="/">
+        <span class="logo-text"><span class="logo-green-text">SKINSPIN</span>.COM</span>
+    </a>
+    <!--<ul class="header_menu">
+        <li class="header_button"><a href="/" onclick="toggleActive(this);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/> </svg><span>Главная</span></a></li>
+        <li class="header_button"><a href="/top" onclick="toggleActive(this);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"/> </svg><span>Топ</span></a></li>
+        <li class="header_button"><a href="/help" onclick="toggleActive(this);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/> </svg><span>Помощь</span></a></li>
+    </ul> -->
+    <div id="accountButton" class="account_button"></div>
+</header>
+<div id="mainContainer" class="main_container">
+    <div class="profile_section">
+        <div class="profile_wrapper">
+            <div class="user_title">Ваш профиль</div>
+            <div class="user_profile" id="userProfile">
+                <div class="user_profile_actions">
+                    <div class="user_profile_id" id="userProfileID">
+                        <span>ID</span>
+                    </div>
+                    <a class="user_steam_profile_link" id="userSteamProfileLink" target="_blank" rel="noreferrer"><svg fill="#49f625" width="25" height="25" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-1.56 -1.56 34.39 34.39" xml:space="preserve" stroke="#49f625"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M25.721,6.393c-3.062,0-5.553,2.49-5.553,5.552c0,0.512,0.092,0.999,0.223,1.47l-2.225,3.511 c-0.295-0.068-0.599-0.113-0.913-0.113c-0.983,0-1.874,0.367-2.575,0.954l-6.634-2.911c0.005-0.079,0.023-0.152,0.023-0.231 c0-2.224-1.811-4.033-4.034-4.033S0,12.4,0,14.625c0,2.225,1.81,4.034,4.033,4.034c0.828,0,1.598-0.25,2.238-0.681l6.966,3.058 c0.102,2.135,1.855,3.846,4.016,3.846c2.224,0,4.033-1.81,4.033-4.034c0-0.167-0.028-0.327-0.05-0.489l3.736-2.936 c0.246,0.035,0.492,0.076,0.748,0.076c3.062,0,5.553-2.491,5.553-5.553C31.273,8.882,28.782,6.393,25.721,6.393z M2.142,14.625 c0-1.042,0.849-1.891,1.891-1.891c1.043,0,1.892,0.848,1.892,1.891c0,1.043-0.849,1.891-1.892,1.891 C2.991,16.516,2.142,15.668,2.142,14.625z M17.253,22.803c-1.08,0-1.958-0.877-1.958-1.957c0-1.079,0.878-1.959,1.958-1.959 c1.079,0,1.957,0.879,1.957,1.959S18.332,22.803,17.253,22.803z M25.721,15.117c-1.75,0-3.172-1.423-3.172-3.172 s1.422-3.172,3.172-3.172s3.172,1.423,3.172,3.172S27.471,15.117,25.721,15.117z"></path> </g> </g></svg></a>
+                    <div onclick="logout()" class="user_profile_logout"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 12L13 12" stroke="#49f625" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9" stroke="#49f625" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19" stroke="#49f625" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-container">
+            <div class="profile_steam_trade">
+                <div class="profile_steam_label">
+                    <div class="profile_steam_title">
+                        <span>Trade-URL</span>
+                    </div>
+                    <a target="_blank" rel="noreferrer" href="https://steamcommunity.com/id/me/tradeoffers/privacy#trade_offer_access_url" class="profile_steam_info">
+                        <span>Узнать</span>
+                    </a>
+                </div>
+                <div class="profile_steam_input_btn">
+                    <div class="profile_steam_input">
+                        <label>
+                            <input id="profileSteamInput" type="text" name="tradeLink" placeholder="Введите трейд ссылку" autocomplete="off">
+                        </label>
+                    </div>
+                    <div class="profile_steam_btn">
+                        <input type="submit" value="Подтвердить" onclick="changeTradeLink()">
+                    </div>
+                </div>
+            </div>
+            <div class="profile_info">
+                <div class="profile_steam_label">
+                    <div class="profile_steam_title">
+                        <span>Информация</span>
+                    </div>
+                </div>
+                <div class="profile_steam_info_container">
+                    <div class="info">
+                        <div class="profile__info">
+                            <div class="title">Участий</div><strong id="participantsNum"></strong>
+                        </div>
+                        <div class="profile__info">
+                            <div class="title">Побед</div><strong id="winNum"></strong>
+                        </div>
+                        <div class="profile__info">
+                            <div class="title">WIN RATE</div><strong id="winRateNum" class="green"></strong>
+                        </div>
+                        <div class="profile__info">
+                            <div class="title">Сумма банков</div><strong id="bankSum" class="yellow"></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_menu">
+        <div class="bottom_menu_list">
+            <ul class="list">
+                <li class="bottom_menu_button"><a onclick="toggleMenu()"><span>Меню</span></a></li>
+            </ul>
+            <div style="display: none" class="mobile_menu_content">
+                <div class="mobile_menu_top">
+                    <div class="mobile_menu_title">Меню</div>
+                    <div id="logoutBtn" class="mobile_menu_logout">
+                        <span>Выйти</span>
+                    </div>
+                </div>
+                <div class="mobile_menu_items">
+                    <a class="mobile_menu_item" href="/">
+                        <svg class="icon icon-target" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/> </svg>
+                        <span>Главная</span>
+                    </a>
+                    <a class="mobile_menu_item" href="/top">
+                        <svg class="icon icon-target" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"/> </svg>
+                        <span>Топ</span>
+                    </a>
+                    <a class="mobile_menu_item" href="/help">
+                        <svg class="icon icon-target" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"> <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/> </svg>
+                        <span>Помощь</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/profile.js"></script>
+</body>
+</html>

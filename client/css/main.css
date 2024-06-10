@@ -1,0 +1,1105 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-site-color: #49f625;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #1a1a1a;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+header {
+    margin: 0 auto;
+    height: 90px;
+    display: flex;
+    max-width: 1250px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+li, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header_menu {
+    -webkit-column-gap: 15px;
+    column-gap: 15px;
+    margin-left: 1%;
+    display: flex;
+}
+
+.header_button a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    border: 1px solid #262626;
+    border-radius: 5px;
+    color: #fff;
+    letter-spacing: 1.5px;
+    padding: 14px 25px;
+    text-transform: uppercase;
+    transition: border .2s;
+}
+
+a.active, .header_button a:hover {
+    border-color: var(--main-site-color);
+}
+
+.header_button svg {
+    fill: var(--main-site-color);
+    height: 17px;
+    width: 17px;
+    padding-top: 5px;
+    padding-right: 4px;
+    display: inline-block;
+}
+
+header::before {
+    display: flex;
+    align-items: center;
+}
+
+.steam-login {
+    width: 270px;
+    height: 48px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--main-site-color);
+    margin-left: auto;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.5s ease;
+    letter-spacing: 0.1em;
+}
+
+.steam-login:hover {
+    box-shadow: 0 0 20px 20px rgba(115, 115, 115, 0.1);
+}
+
+.steam-logo {
+    width: 30px;
+    height: 20px;
+}
+
+.logo-text {
+    max-width: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    font-style: normal;
+    color: white;
+}
+
+.logo-green-text {
+    color: var(--main-site-color);
+}
+
+.main_container {
+    margin: 0 auto;
+    max-width: 1250px;
+    height: calc(100% - 90px);
+}
+
+.stats_widgets {
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    gap: 14px;
+}
+
+.win_info, .online, .games_today, .online_max {
+    width: 33%;
+    height: 120px;
+}
+
+.current_winner {
+    width: 67%;
+    height: 120px;
+}
+
+.win_content,
+.online_content,
+.games_today_content,
+.online_max_content,
+.current_winner_content {
+    padding: 10px 30px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    background: #141414;
+}
+
+.icon {
+    display: inline-block;
+}
+
+.text-info {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Monument Extended', sans-serif;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+}
+
+.title {
+    font-size: 12px;
+    color: #e0e0e0;
+    font-family: "Muller", sans-serif;
+    letter-spacing: 0;
+}
+
+.current_winner_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.current_winner_top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 9px;
+    color: #fff;
+    font-family: 'Monument Extended', sans-serif;
+}
+
+.current_winner_wine {
+    display: flex;
+    width: 100%;
+}
+
+.current_winner_avatar {
+    width: 35px;
+    min-width: 35px;
+    margin-right: 10px;
+}
+
+.last_avatar_winner {
+    border: none;
+    max-width: 100%;
+    vertical-align: top;
+}
+
+.current_winner_info {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.result {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Monument Extended', sans-serif;
+}
+
+.current_winner_winning {
+    max-width: 45%;
+    background: url(../img/money.png) 100% 0 no-repeat;
+    padding-right: 45px;
+    text-align: right;
+}
+
+.bottom_menu {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    padding: 5px 0;
+    z-index: 99999;
+    background: #1c1c1c;
+    border-top: 1px solid hsla(0, 0%, 87%, 0.1);
+}
+
+.bottom_menu_list {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    -webkit-column-gap: 15px;
+    column-gap: 15px;
+    display: flex;
+}
+
+.bottom_menu_button a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    border: 1px solid #262626;
+    border-radius: 5px;
+    color: #fff;
+    letter-spacing: 1.5px;
+    padding: 14px 25px;
+    text-transform: uppercase;
+    transition: border .2s;
+}
+
+a.active, .bottom_menu_button a:hover {
+    border-color: var(--main-site-color);
+}
+
+.bottom_menu_button svg {
+    fill: var(--main-site-color);
+    height: 17px;
+    width: 17px;
+    padding-top: 5px;
+    padding-right: 4px;
+    display: inline-block;
+}
+
+header::before {
+    display: flex;
+    align-items: center;
+}
+
+.mobile_menu_content {
+    background: #242424;
+    bottom: 100%;
+    position: absolute;
+    width: 100%;
+    height: 230px;
+}
+
+.mobile_menu_top {
+    align-items: center;
+    display: flex;
+    padding: 25px;
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.mobile_menu_title {
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: white;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.mobile_menu_logout {
+    align-items: center;
+    background: #484848;
+    border-radius: 5px;
+    color: #a1a1a1;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    padding: 7px;
+    text-transform: uppercase;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+}
+
+.mobile_menu_items {
+    grid-gap: 24px;
+    display: flex;
+    padding-top: 12px;
+}
+
+.mobile_menu_item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    row-gap: 6px;
+    width: 100%;
+}
+
+.mobile_menu_item span {
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: .03em;
+    text-align: center;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.mobile_menu_item svg {
+    fill: var(--main-site-color);
+    height: 28px;
+    width: 22px;
+}
+
+.mobile_menu_account {
+    display: flex;
+    padding: 24px;
+    justify-content: center;
+}
+
+.profile_section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    height: calc(100% - 90px);
+}
+
+.profile_wrapper {
+    width: 25%;
+}
+
+.profile-container {
+    letter-spacing: .05em;
+    margin-left: auto;
+    width: calc(80% - 80px);
+}
+
+.user_title {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.user_profile {
+    align-items: center;
+    border: 1px solid #333435;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 30px;
+    padding: 20px 20px 30px;
+    position: relative;
+    width: 100%;
+    background-color: #1c1c1c;
+}
+
+.user_avatar {
+    border-radius: 12px;
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.user_nickname {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    max-width: calc(100%);
+    overflow: hidden;
+    padding-left: 15px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.user_profile_actions {
+    bottom: -17px;
+    -webkit-column-gap: 5px;
+    column-gap: 5px;
+    display: flex;
+    left: 20px;
+    position: absolute;
+    height: 30px;
+}
+
+.user_profile_id {
+    align-items: center;
+    background: #333435;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: 15px;
+    height: 37px;
+    padding: 0 15px;
+    position: relative;
+    width: 190px;
+}
+
+.user_profile_id span {
+    color: #9b9b9b;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.user_profile_id div {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    padding-left: 8px;
+}
+
+.user_profile_id svg {
+    fill: var(--main-site-color);
+    height: 16px;
+    margin-left: auto;
+    transition: fill .2s;
+    width: 16px;
+}
+
+.user_steam_profile_link, .user_profile_logout {
+    align-items: center;
+    border-radius: 4px;
+    background: #333435;
+    cursor: pointer;
+    display: flex;
+    height: 37px;
+    justify-content: center;
+    transition: background .3s;
+    width: 37px;
+}
+
+.profile_steam_trade {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile_steam_input_btn {
+    background-color: #1c1c1c;
+    border: 1px solid #333435;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+}
+
+.profile_steam_label {
+    align-items: center;
+    display: flex;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+.profile_steam_title {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    line-height: 40px;
+    position: relative;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile_steam_title span {
+    margin-right: 6px;
+}
+
+.profile_steam_info {
+    align-items: center;
+    background: #484848;
+    border-radius: 5px;
+    color: #e0e0e0;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    padding: 7px;
+    text-transform: uppercase;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+}
+
+.profile_steam_input {
+    width: calc(100% - 175px);
+}
+
+.profile_steam_input input {
+    background: #333435;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 31px 0 27px;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile_steam_btn {
+    margin-left: 10px;
+    width: 170px;
+}
+
+.profile_steam_btn input {
+    background: var(--main-site-color);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    height: 60px;
+    transition: background .3s;
+    width: 100%;
+    font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+}
+
+.profile_steam_btn input:hover {
+    background: #333435;
+}
+
+.profile_info {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    height: 140px;
+}
+
+.profile_steam_info_container {
+    background-color: #1c1c1c;
+    border: 1px solid #333435;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile_steam_info_container .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #c0c0c0;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Monument Extended', sans-serif;=
+}
+
+.profile__info {
+    text-align: center;
+}
+
+.profile__info .title {
+    padding-bottom: 3px;
+    font-size: 12px;
+    font-style: normal;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+.top-panel {
+    background: #141414;
+    padding: 0 20px 0 0;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.top_panel_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    column-gap: 50px;
+    padding-left: 10px;
+    justify-content: space-around;
+}
+
+.top_panel_info .info-icon {
+    display: inline-flex;
+    width: 175px;
+    max-width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.top_panel_info .info-icon .info_icon_icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.top_panel_info .info-icon .right {
+    width: 60%;
+}
+
+.top_panel_info .right {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
+
+.top_panel_btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.top_panel_btn a {
+    align-items: center;
+    justify-content: center;
+    min-width: 275px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--main-site-color);
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    transition: box-shadow 0.4s ease;
+}
+
+.top_panel_btn a:hover {
+    box-shadow: 0 0 20px 20px rgba(115, 115, 115, 0.1);
+}
+
+.info_icon_img {
+    width: 34px;
+    height: 34px;
+}
+
+.time_and_progress_bar {
+    border-radius: 0 0 24px 24px;
+    padding: 50px 25px;
+    background-color: #141414;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-top: 2px solid hsl(0, 0%, 10%);
+}
+
+.roulette_panel {
+    border-radius: 0 0 24px 24px;
+    background-color: #141414;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-top: 2px solid hsl(0, 0%, 10%);
+    position: relative;
+    padding: 25px 0;
+    overflow: hidden;
+}
+
+.roulette_panel .roulette_line_top, .roulette_panel .roulette_line_bottom {
+    background: #273020;
+    background: linear-gradient(to right, #273020 0%, var(--main-site-color) 50%, #252a2d 100%);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.roulette_panel .roulette_line_bottom {
+    top: auto;
+    bottom: 0;
+}
+
+.roulette_panel .roulette_line_top:after {
+    content: "";
+    background: url(../img/triangle.png) 0 0 no-repeat;
+    width: 24px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -10px;
+    transform: rotate(-180deg);
+}
+
+.roulette_item {
+    display: inline-block;
+    vertical-align: top;
+    width: 86px;
+    height: 86px;
+    border-radius: 38px;
+    margin: 0 7px;
+    position: relative;
+    z-index: 1;
+}
+
+.roulette_item_avatar span {
+    border-radius: 38px;
+}
+
+.roulette_item_avatar img {
+    width: 100%;
+    border-radius: 38px;
+}
+
+.roulette_scroll {
+    white-space: nowrap;
+    position: relative;
+}
+
+.winner {
+    z-index: 0;
+    -webkit-box-shadow: 0 0 0 30px rgba(108, 108, 108, 0.3), 0 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 30px rgba(82, 82, 82, 0.3), 0 0 0 15px rgba(45, 45, 45, 0.3);
+}
+
+.progress-block {
+    height: 54px;
+    border-radius: 24px;
+    width: 80%;
+    padding: 4px;
+    display: flex;
+    position: relative;
+    background: linear-gradient(45deg, #324318 0%, #324318 93%, #324318 94%);
+}
+
+.progress {
+    border-radius: 24px;
+    border: 4px solid #1b1b1c;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-bar {
+    background: url(../img/progress.png) 0 0 repeat-x;
+    border-radius: 24px;
+}
+
+.progress-text {
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.progress-text span {
+    display: block;
+    color: #e0e0e0;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+}
+
+.progress_and_text {
+    width: 12%;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+
+.progress-timer-block {
+    font-size: 24px;
+    color: #fff;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+
+.progress-timer-block .ico {
+    width: 32px;
+    height: 32px;
+    fill: #ADFF00;
+    margin-right: 10px;
+}
+
+.scroll_items {
+    background: #141414;
+    border-radius: 24px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.scroll_items .scrolling {
+    overflow: auto;
+    max-width: 1420px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.scroll_items .scrolling_line {
+    white-space: nowrap;
+    display: inline-flex;
+}
+
+.scroll_item {
+    width: 110px;
+    border: 2px solid hsl(0, 0%, 12%);;
+    border-radius: 17px;
+    margin: 0 10px;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 165px;
+}
+
+.scroll_item_chance {
+    font-size: 10px;
+    color: white;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+
+.scroll_user_avatar {
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.scroll_item_chance .chance {
+    color: #ADFF00;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    padding-top: 13px;
+}
+
+.main_container::-webkit-scrollbar {
+    width: 0;
+}
+
+.all_game_items {
+    display: flex;
+}
+
+.all_items_container {
+    flex: 1 1 auto;
+    background: #141414;
+    border-radius: 24px;
+    width: 100%;
+}
+
+.game_user {
+    background: #1b1b1c;
+    padding: 10px;
+    border-radius: 24px;
+    margin: 20px;
+    width: calc(100% - 40px);
+}
+
+.game_user_info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.game_user_info .user-left {
+    display: flex;
+}
+
+.game_user_avatar {
+    min-width: 48px;
+    max-width: 48px;
+    height: 48px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-size: cover;
+
+}
+
+.game_user_info .right_info {
+    font-size: 14px;
+}
+
+.game_user_item {
+    background: #161618;
+    border: 1px solid #1d1d23;
+    border-radius: 10px;
+    padding: 8px 10px 10px;
+    text-align: center;
+    font-size: 11px;
+    width: 80px;
+    margin-right: 7px;
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.item_image {
+    height: 45px;
+    margin-bottom: 5px;
+    filter: brightness(1.2);
+}
+
+.game_user_item .item_cost {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.game_user_item .cost strong {
+    color: white;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+
+.item_image {
+    border: none;
+    margin: 0 auto;
+    max-width: 60px;
+    max-height: 65px;
+    background-size: cover;
+}
+
+.game_user_nickname {
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+.right_info_text {
+    color: white;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+
+.right_info_text strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+.game_user_info .price {
+    color: #0F1015;
+    font-weight: 500;
+    padding: 0 8px 0 8px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    background: var(--main-site-color);
+    border-radius: 5px;
+}
+
+footer {
+    padding: 45px 0 70px 0;
+    margin-top: 45px;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer_top_title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    padding-bottom: 5px;
+}
+
+.footer_top_text {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #d7d7d7;
+    font-family: "Montserrat", sans-serif;
+}
+
+.footer_top_text p {
+    padding: 0 0 10px;
+    font-family: "Montserrat", sans-serif;
+    color: #c4c4c4;
+}
+
+.footer_down_content {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 30px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    color: #989797;
+}
+
+body::-webkit-scrollbar {
+    width: 4px;
+}
+body::-webkit-scrollbar-track {
+    background: #151515;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.scrolling::-webkit-scrollbar {
+    width: 4px;
+    height: 3px;
+}
+.scrolling::-webkit-scrollbar-track {
+    background: #151515;
+}
+.scrolling::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.num {
+    font-family: "Montserrat", sans-serif;
+}

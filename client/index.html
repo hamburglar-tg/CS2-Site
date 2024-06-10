@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Рулетка CS2 от 1 рубля.">
+    <meta name="keywords" content="CS2, рулетка, CS GO, скины, skins, spin">
+    <meta property="og:title" content="Рулетка CS2">
+    <meta property="og:description" content="Лучшая рулетка по игре CS2 от 1 рубля">
+    <meta property="og:image" content="https://cybersport.metaratings.ru/storage/images/53/76/53763083fba6ccc8abcc377e0f4b6d23.jpg">
+    <meta property="og:url" content="http://localhost:4000">
+    <title>CS2 Рулетка</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main_responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <style>
+        body.loading::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="loading">
+    <header>
+        <a class="main_menu" onclick="backMainPage()">
+            <span class="logo-text"><span class="logo-green-text">SKINSPIN</span>.COM</span>
+        </a>
+        <div id="accountButton" class="account_button"></div>
+    </header>
+    <main style="max-width: 1250px; margin: 0 auto;">
+        <div id="mainSection" class="section-main" style="display: block">
+            <div class="stats_widgets">
+                <div class="win_info">
+                    <div class="win_container">
+                        <div class="win_content">
+                            <div class="icon">
+                                <img src="img/games.png" alt="">
+                            </div>
+                            <div class="text-info">
+                                <div class="title">Страйк</div>
+                                <div class="num" id="strikeNum">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="games_today">
+                    <div class="games_today_container">
+                        <div class="games_today_content">
+                            <div class="icon">
+                                <img src="img/games.png" alt="">
+                            </div>
+                            <div class="text-info">
+                                <div class="title">Игр сегодня</div>
+                                <div id="gamesToday" class="num">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="online">
+                    <div class="online_container">
+                        <div class="online_content">
+                            <div class="icon">
+                                <img src="img/people.png" alt="">
+                            </div>
+                            <div class="text-info">
+                                <div class="title">Онлайн</div>
+                                <div id="currentOnline" class="num">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="online_max">
+                    <div class="online_max_container">
+                        <div class="online_max_content">
+                            <div class="icon">
+                                <img src="img/people.png" alt="">
+                            </div>
+                            <div class="text-info">
+                                <div class="title">Пик игроков</div>
+                                <div class="num" id="playersPeak">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="current_winner">
+                    <div class="current_winner_container">
+                        <div class="current_winner_content">
+                            <div class="current_winner_wine">
+                                <div class="current_winner_avatar">
+                                    <img class="last_avatar_winner" id="last-avatar-winner" src="img/default_avatar.jpg" alt="">
+                                </div>
+                                <div class="current_winner_info">
+                                    <div class="title">Победитель</div>
+                                    <div class="result" id="last-name-winner"></div>
+                                </div>
+                                <div class="current_winner_winning">
+                                    <div class="title">Сумма</div>
+                                    <div class="result" id="last-price-winner">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-panel">
+                <div class="top_panel_info">
+                    <div class="info-icon">
+                        <div class="info_icon_icon"><img class="info_icon_img" alt="" src="img/money-icon.png"></div>
+                        <div class="right">
+                            <div class="title">Игра №</div><m id="roundId">0</m>
+                        </div>
+                    </div>
+                    <div class="info-icon">
+                        <div class="info_icon_icon"><img class="info_icon_img" alt="" src="img/coins-icon.png"></div>
+                        <div class="right">
+                            <div class="title">В игре</div><m class="roundBank" id="roundBank">0</m>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_panel_btn" id="topPanelBtn"></div>
+            </div>
+            <div id="progressTimeBar" class="time_and_progress_bar" style="display: flex;">
+                <div class="progress-block">
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBarContainer" style="width: 0;"></div>
+                        <div class="progress-text" id="progressTextContainer">0 / 200<span> предметов</span></div>
+                    </div>
+                </div>
+                <div class="progress_and_text">Или через</div>
+                <div class="progress-timer-block">
+                    <img src="img/time-icon.png" class="ico" alt="">
+                    <span id="gameTimer">00:05</span>
+                </div>
+            </div>
+            <div id="roulettePanel" class="roulette_panel" style="display: none;">
+                <div class="roulette_line_top"></div>
+                <div class="roulette_line_bottom"></div>
+                <div id="rouletteUsersScroll" class="roulette_scroll"></div>
+            </div>
+            <div class="scroll_items">
+                <div class="scrolling">
+                    <div class="scrolling_line" id="depUsers" style="display: inline-flex;"></div>
+                </div>
+            </div>
+            <div class="all_game_items">
+                <div id="gameItemsContainer" class="all_items_container"></div>
+            </div>
+        </div>
+    </main>
+    <footer style="max-width: 1250px; margin: 0 auto;">
+        <div class="footer_container">
+            <div class="footer_top_content">
+                <div class="footer_top_title"><span class="logo-green-text">SKINSPIN</span> CS2</div>
+                <div class="footer_top_text">
+                    <p>SkinSpin - это сайт, предлагающий возможность сорвать куш, участвуя в нашей увлекательной рулетке с самой минимальной ставкой. Для начала игры необходимо авторизоваться через свой аккаунт Steam и указать трейдссылку. После этого вы сможете принимать участие в захватывающих играх на нашем сайте.</p>
+                    <p>Для участия можно использовать любые скины из игры CS2.</p>
+                    <p>SkinSpin предоставляет возможность получить множество предметов с минимальными ограничениями в каждом новом раунде. Вы можете отправить целых 20 предметов одним трейдом - это удобно и эффективно. Каждая игра длится всего 2 минуты, что позволяет всем желающим успеть принять участие.</p>
+                    <p>Если у вас есть опасения относительно того, что ваш трейд не будет обработан вовремя или не успеет участвовать в раунде, не волнуйтесь. Наш бот оперативно обрабатывает все трейды, оставляя вам только приятные эмоции и удовольствие от игры на SkinSpin.</p>
+                </div>
+            </div>
+            <div class="footer_down_content">
+                <div>CS2 roulette - <span class="logo-green-text">SKINSPIN</span>.COM</div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js" defer="defer"></script>
+</body>
+</html>

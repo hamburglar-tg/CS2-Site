@@ -1,0 +1,373 @@
+@media only screen and (max-width: 1700px) {
+    .header_button a {
+        padding: 10px 15px;
+    }
+}
+
+@media only screen and (max-width: 1160px) {
+    .user_title {
+        font-size: 28px;
+    }
+    .user_profile_id {
+        padding: 0 10px;
+        width: 160px;
+    }
+    .user_profile_id span {
+        font-size: 12px;
+    }
+    .user_profile_id div {
+        font-size: 12px;
+    }
+    .user_steam_profile_link, .user_profile_logout {
+        width: 32px;
+    }
+    .top_panel_info {
+        width: 100%;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    .top-panel {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        height: 150px;
+        padding: 0;
+    }
+    .top_panel_btn {
+        width: 100%;
+        margin-left: 25px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .stats_widgets {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .header_menu {
+        display: none;
+    }
+    .steam-login {
+        font-size: 12px;
+        width: 200px;
+        height: 43px;
+    }
+    .steam-login {
+        font-size: 13px;
+        width: 220px;
+    }
+    .logo-text {
+        font-size: 24px;
+    }
+    .win_info, .online, .games_today, .online_max {
+        width: calc(33% - 7px);
+    }
+    .current_winner {
+        width: calc(67% - 7px);
+    }
+    /*
+     .bottom_menu {
+        display: block;
+    }
+     */
+    .profile_section {
+        flex-direction: column;
+    }
+    .profile-container {
+        margin-left: 0;
+        width: 100%;
+    }
+    .user_title {
+        font-size: 25px;
+        padding-bottom: 20px;
+    }
+    .user_profile {
+        border: none;
+        background-color: #1a1a1a;
+        height: 50px;
+        margin-top: 20px;
+        padding: 0;
+        justify-content: space-between;
+    }
+    .profile_wrapper {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .user_profile_actions {
+        position: unset;
+    }
+    .user_nickname {
+        margin-right: auto;
+        font-size: 20px;
+    }
+    .profile_steam_btn input {
+        font-size: 16px;
+    }
+    .top_panel_btn a {
+        min-width: 200px;
+        height: 40px;
+    }
+    .win_content, .online_content, .games_today_content, .online_max_content, .current_winner_content {
+        height: 100px;
+    }
+    .top-panel {
+        margin-top: 0;
+    }
+    .stats_widgets {
+        column-gap: 14px;
+        row-gap: 0;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .current_winner {
+        width: 100%;
+    }
+    .win_info, .online, .games_today, .online_max {
+        width: calc(50% - 7px);
+    }
+    .logo-text {
+        font-size: 20px;
+    }
+    .steam-login {
+        font-size: 11px;
+        width: 170px;
+        height: 40px;
+    }
+    .steam-logo {
+        width: 25px;
+        height: 18px;
+    }
+    .user_title {
+        font-size: 20px;
+    }
+    .user_nickname {
+        font-size: 16px;
+    }
+    .user_avatar {
+        height: 50px;
+        width: 50px;
+    }
+    .user_profile_id div {
+        font-size: 12px;
+    }
+    .user_profile_id div {
+        font-size: 13px;
+    }
+    .user_profile_id {
+        width: 170px;
+    }
+    .profile_steam_title {
+        font-size: 20px;
+    }
+    .profile_steam_info {
+        font-size: 10px;
+    }
+    .profile_steam_input_btn {
+        height: 63px;
+    }
+    .profile_steam_input input {
+        height: 40px;
+    }
+    .profile_steam_btn input {
+        height: 40px;
+    }
+    .profile_steam_btn {
+        width: 140px;
+    }
+    .profile_steam_input {
+        width: calc(100% - 135px);
+    }
+    .profile_steam_info_container {
+        height: 63px;
+    }
+    .top_panel_info .info-icon {
+        width: 115px;
+        max-width: 20%;
+    }
+    .top_panel_info {
+        justify-content: space-between;
+        padding-left: 20px;
+    }
+    .top-panel {
+        height: 140px;
+    }
+    .top_panel_info .right {
+        font-size: 13px;
+    }
+    .progress-block {
+        width: 100%;
+    }
+    .progress_and_text {
+        display: none;
+    }
+    .time_and_progress_bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px 25px 20px;
+    }
+    .progress-timer-block {
+        padding-top: 20px;
+    }
+    .top_panel_btn a {
+        width: 96%;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .current_winner {
+        width: 100%;
+        height: 115px;
+    }
+    .win_info, .online, .games_today, .online_max {
+        width: calc(50% - 7px);
+        height: 115px;
+    }
+    .bottom_menu_button a {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    .steam-login {
+        font-size: 9px;
+        width: 130px;
+        height: 38px;
+    }
+    .steam-logo {
+        width: 20px;
+        height: 15px;
+    }
+    .logo-text {
+        font-size: 18px;
+    }
+    .user_profile_actions {
+        padding-top: 15px;
+    }
+    .user_profile {
+        flex-wrap: wrap;
+    }
+    .profile_wrapper {
+        height: 180px;
+    }
+    .top_panel_btn a {
+        min-width: 130px;
+        font-size: 11px;
+    }
+    .right .title {
+        font-size: 11px;
+    }
+    .top_panel_info {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-top: 5px;
+    }
+    .top_panel_info .info-icon {
+        width: 40%;
+        max-width: 40%;
+    }
+    .top_panel_btn {
+        margin-left: 0;
+        justify-content: center;
+    }
+    .top-panel {
+        height: 180px;
+    }
+    .top_panel_btn a {
+        width: 82%;
+    }
+    .game_user_info .right_info {
+        font-size: 11px;
+    }
+    .time_and_progress_bar {
+        margin-bottom: 15px;
+    }
+    .scroll_items {
+        margin-bottom: 15px;
+    }
+    .scroll_user_avatar {
+        width: 70px;
+        height: 70px;
+    }
+    .scroll_item {
+        height: 145px;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .profile_steam_title {
+        font-size: 16px;
+    }
+    .profile_steam_info {
+        font-size: 8px;
+    }
+    .profile_steam_btn {
+        width: 100px;
+    }
+    .profile_steam_input {
+        width: calc(100% - 95px);
+    }
+    .profile_steam_btn input {
+        font-size: 12px;
+    }
+    .profile_steam_info_container {
+        padding: 10px;
+    }
+    .profile__info .title {
+        font-size: 9px;
+    }
+    .user_profile_id {
+        width: 150px;
+        padding: 0 10px;
+    }
+    .user_profile_id span {
+        font-size: 12px;
+    }
+    .user_profile_id div {
+        font-size: 11px;
+    }
+    .user_steam_profile_link, .user_profile_logout {
+        width: 32px;
+    }
+    .win_content, .online_content, .games_today_content, .online_max_content, .current_winner_content {
+        height: 90px;
+    }
+    .win_info, .online, .games_today, .online_max {
+        height: 105px;
+    }
+    .current_winner {
+        height: 105px;
+    }
+    .text-info {
+        font-size: 13px;
+    }
+    .result {
+        font-size: 11px;
+    }
+    .progress-timer-block {
+        font-size: 20px;
+    }
+    .progress-timer-block .ico {
+        margin-right: 2px;
+    }
+}
+
+@media only screen and (max-width: 298px) {
+    .logo-text {
+        font-size: 13px;
+    }
+    .steam-login {
+        font-size: 8px;
+        width: 110px;
+        height: 35px;
+    }
+    .steam-logo {
+        width: 17px;
+        height: 12px;
+    }
+    .top_panel_info {
+        column-gap: 0;
+    }
+}
